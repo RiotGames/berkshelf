@@ -39,30 +39,42 @@ Berkshelf is intended to be used as a CLI tool.  It is not intended to be used a
 
 ## Supported Platforms
 
-Berkshelf is tested and supported on Ruby 2.3 and 2.4.
+Berkshelf is tested and supported on Ruby 2.4 and 2.5.
 
 ## Configuration
 
-Berkshelf will search in specific locations for a configuration file. In order:
+Berskhelf uses Chef's standard config.rb/knife.rb file.
 
-    $PWD/.berkshelf/config.json
-    ~/.berkshelf/config.json
+The old config.json berkshelf file has been deprecated.
 
-You are encouraged to keep project-specific configuration in the `$PWD/.berkshelf` directory. A default configuration file is generated for you, but you can update the values to suit your needs.
+A partial list of common berkshelf settings and their Chef Config settings for conversion:
+
+| Berkshelf Config            | Chef Config                       |
+|:--------------------------- |:--------------------------------- |
+| timeout                     | rest_timeout                      |
+| chef.chef_server_url        | chef_server_url                   |
+| chef.validation_client_name | validation_client_name            |
+| chef.validation_key_path    | validation_key                    |
+| chef.client_key             | client_key                        |
+| chef.node_name              | node_name                         |
+| chef.trusted_certs_dir      | trusted_certs_dir                 |
+| chef.artifactory_api_key    | artifactory_api_key               |
+| ssl.verify                  | verify_api_cert / ssl_verify_mode |
+| ssl.ca_path                 | ssl_ca_path                       |
+| ssl.client_cert             | ssl_client_cert                   |
+| ssl.client_key              | ssl_client_key                    |
 
 ## Shell Completion
 
 - [Bash](https://github.com/berkshelf/berkshelf-bash-plugin)
 - [ZSH](https://github.com/berkshelf/berkshelf-zsh-plugin)
 
-## Plugins
-
-Please see [Plugins page](https://github.com/berkshelf/berkshelf/blob/master/PLUGINS.md) for more information.
-
 ## Getting Help
 
-* If you have an issue: report it on the [issue tracker](https://github.com/berkshelf/berkshelf/issues)
-* If you have a question: visit the #chef or #berkshelf channel on irc.freenode.net
+- Documentation: https://docs.chef.io/berkshelf.html
+- Tickets/Issues: https://github.com/berkshelf/berkshelf/issues
+- Slack: [Chef Community Slack](https://community-slack.chef.io/)
+- Mailing list: https://discourse.chef.io
 
 ## Authors
 
